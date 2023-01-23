@@ -20,7 +20,6 @@ summary_metrics <- c(metrics,"Current_Condition", "Vulnerability", "Adaptive_Cap
 
 resilience_ntiles <- resilience_df[,c(24:36, 41:44)]
 
-
 #### calculate national means ####
 #wide form
 nat_mean <- as.data.frame.list(colMeans(resilience_ntiles))
@@ -40,7 +39,7 @@ reg_mean$min_col = colnames(reg_mean[2:14])[apply(reg_mean[2:14], 1, which.min)]
 reg_mean$max_col = colnames(reg_mean[2:14])[apply(reg_mean[2:14], 1, which.max)]
 
 reg_mean_sd<- aggregate(x = resilience_df[c(24:36, 41:44)],
-                        by = list(resilience_data$HUC_Region),
+                        by = list(resilience_df$HUC_Region),
                         FUN = meansd)
 
 names(reg_mean_sd) <- c("Region", summary_metrics)

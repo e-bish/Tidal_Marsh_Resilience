@@ -5,28 +5,11 @@ library(stringr)
 library(janitor)
 library(gt)
 
-#library(xlsx)
-# library(ggplot2)
-# library(ggrepel) #label plots
-# library(patchwork)
-
-
-
-#### functions ####
-# return mean with standard deviation in parenthesis 
-meansd <- function(x, ...){
-  mean1 <-   signif(round(mean(x, na.rm=T),3), 3)   #calculate mean and round
-  sd1 <- signif(round(sd(x, na.rm=T), 3),3) # std deviation - round adding zeros
-  psd <- paste("(", sd1, ")", sep="") #remove spaces
-  out <- paste(mean1, psd)  # paste together mean  standard deviation
-  if (str_detect(out,"NA")) {out="NA"}   # if missing do not add sd
-  return(out)
-}
-## function code from https://github.com/another-smith/meanSE/blob/main/mean%20and%20se%20table10-12with%20functions.Rmd
-
+#### load functions ####
+source("R_scripts/marsh_functions.R")
 
 #### load data ####
-resilience_data <- read.csv("Final/resilience_df.csv")
+resilience_data <- read.csv("outputs/resilience_df.csv")
 
 #resilience_df is created in 01_calculate_ntiles.R
 metrics <- c("Core_Edge_ratio", "Perc_IC", "Perc_Natural" , "Perc_Ag" , 
@@ -108,37 +91,4 @@ reserve_sum <- reserve_mean[c(1, 15:20)]
 ##### Highest priority marshes for conservation ####
 length(which(resilience_data$ManagementCategory == "High-Low-High",))/1984 #22 % high priority for conservation
 length(which(resilience_data$ManagementCategory == "Low-High-Low",))/1984 #17.5% too far gone to save
-
-#### Table 2 ####
-#calculate frequency for each  management category recommended nationally
-nat_mgmt <- resilience_data %>% 
-  group_by(ManagementCategory) %>% 
-  summarize(n = n())
-
-#split the main dataframe by region
-mgmt_reg_list <- resilience_data %>% 
-  group_split(HUC_Region)
-
-#create an empty matrix to store frequency data for each region
-reg_mgmt <- matrix(nrow = 8, ncol = 5)
-
-#calculate frequency data for each region, store in the matrix
-for (i in 1:5) {
-  reg_mgmt[,i] <- mgmt_reg_list[[i]] %>% 
-    group_by(ManagementCategory) %>% 
-    summarize(n = n()) %>% 
-    pull(n)
-}
-
-#add column names to the matrix
-reg_mgmt <- reg_mgmt %>% `colnames<-`(c("Gulf of Mexico", "Mid-Atlantic", "Northeast", "Southeast", "West Coast"))
-
-#create row names
-mgmt_labs <- resilience_data %>% 
-  distinct(ManagementCategory) %>% 
-  arrange(ManagementCategory)   
-
-#combine row names, and regional and national frequencies into one table
-reg_mgmt <- bind_cols(mgmt_labs, reg_mgmt, National = nat_mgmt$n) %>% 
-  adorn_totals("row") 
 

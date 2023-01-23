@@ -1,3 +1,6 @@
+#### load data summaries ####
+source("R_scripts/02_summarize_data.R")
+
 #### Table 2 ####
 #calculate frequency for each  management category recommended nationally
 nat_mgmt <- resilience_data %>% 

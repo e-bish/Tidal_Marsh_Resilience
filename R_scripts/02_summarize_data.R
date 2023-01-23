@@ -2,8 +2,6 @@
 library(dplyr)
 library(tidyr)
 library(stringr)
-library(janitor)
-library(gt)
 
 #### load functions ####
 source("R_scripts/marsh_functions.R")
@@ -67,7 +65,7 @@ state_mean[,1:18] <- state_mean_sd
 
 state_sum <- state_mean[c(1, 15:20)]
 
-#### reserve means ####        #### need to filter for just reserves!
+#### reserve means ####        
 reserve_mean1<- aggregate(x = resilience_ntiles,
                           by = list(resilience_data$HUC_RESERVE),
                           FUN = mean)

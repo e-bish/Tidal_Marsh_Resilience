@@ -2,7 +2,7 @@
 A repo to store files related to Stevens et al. in prep
 
 ## Folder structure
-data - a .csv file containing raw metric data calculated using methods detailed below
+data - a .csv file containing raw metric data calculated using methods detailed here [https://www.fisheries.noaa.gov/inport/item/62985]
 
 excel - an .xlsx file containing sheets that step through the metric scoring process
 

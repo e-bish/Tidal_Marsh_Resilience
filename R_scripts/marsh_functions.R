@@ -1,3 +1,5 @@
+#Written by Emily Bishop
+#Last updated January 25, 2023
 
 #function to calculate percentiles based on raw data
 percentile_calc <- function(data, p) {

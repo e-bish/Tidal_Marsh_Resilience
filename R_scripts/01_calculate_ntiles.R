@@ -1,3 +1,7 @@
+#Written by Emily Bishop
+#Last updated January 25, 2023
+
+####load packages ####
 library(dplyr)
 
 #### load data ####

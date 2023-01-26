@@ -8,6 +8,7 @@ library(gt)
 
 #### load data summaries ####
 source("R_scripts/02_summarize_data.R")
+summary_metrics <- gsub("_", " ", summary_metrics)
 
 #### Table 2 ####
 #calculate frequency for each  management category recommended nationally
@@ -79,11 +80,9 @@ mgmt_table <- bind_cols(mgmt_labs, reg_mgmt, Total = nat_mgmt$n) %>%
 
 #gtsave(mgmt_table, "outputs/mgmt_table.png", expand = 10)
 
-#### S1 National Summary ####
+#### S2 National Summary ####
 nat_mean_2 <- as.data.frame(apply(resilience_ntiles, 2, meansd))
 names(nat_mean_2) <- "Avg_Resilience_Score"
-
-summary_metrics <- gsub("_", " ", summary_metrics)
 nat_mean_2$Metrics <- summary_metrics
 
 national_table <- nat_mean_2 %>% 
@@ -112,7 +111,7 @@ national_table <- nat_mean_2 %>%
 
 #gtsave(national_table, "outputs/national_table.png", expand = 10)
 
-#### S1 Regional Summary ####
+#### S2 Regional Summary ####
 S1_reg_sum <- t(reg_mean_sd) %>% 
   row_to_names(row_number = 1) %>% 
   as.data.frame() %>% 
@@ -143,8 +142,14 @@ regional_table <- S1_reg_sum %>%
 
 #gtsave(regional_table, "outputs/regional_table.png", expand = 10)
 
-#### S1 State Summary ####
-S1_state_sum <- t(state_mean_sd) %>% 
+#### S2 State Summary ####
+#recalculate mean.sd using state abbreviations
+state_mean_ab<- aggregate(x = resilience_ntiles,
+                       by = list(resilience_df$HUC_STATE_ABBR),
+                       FUN = meansd)
+names(state_mean_ab) <- c("State", summary_metrics)
+
+S1_state_sum <- t(state_mean_ab) %>% 
   row_to_names(row_number = 1) %>% 
   as.data.frame() %>% 
   mutate(Metrics = summary_metrics)
@@ -170,11 +175,11 @@ state_table <- S1_state_sum %>%
   tab_row_group(label = "Metric Categories", 
                 rows = c(14:16)) %>% 
   tab_row_group(label = "Metrics", 
-                rows = c(1:13)) ; state_table
+                rows = c(1:13)); state_table
 
-#gtsave(state_table, "outputs/state_table.png", expand = 10)
+gtsave(state_table, "outputs/state_table.png", expand = 10)
 
-#### S1 Reserve Summary ####
+#### S2 Reserve Summary ####
 S1_reserve_sum <- t(reserve_mean[1:18]) %>% 
   row_to_names(row_number = 1) %>% 
   as.data.frame() %>% 
@@ -203,4 +208,4 @@ reserve_table <- S1_reserve_sum %>%
   tab_row_group(label = "Metrics", 
                 rows = c(1:13)) ; reserve_table
 
-#gtsave(reserve_table, "outputs/reserve_table.png", expand = 10)
+#gtsave(reserve_table, "outputs/reserve_table.png", expand = 10, vwidth = 2000, vheight = 1000)

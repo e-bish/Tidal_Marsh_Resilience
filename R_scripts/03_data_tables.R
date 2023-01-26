@@ -110,6 +110,8 @@ national_table <- nat_mean_2 %>%
     tab_row_group(label = "Metrics", 
                   rows = c(1:13)) ; national_table
 
+#gtsave(national_table, "outputs/national_table.png", expand = 10)
+
 #### S1 Regional Summary ####
 S1_reg_sum <- t(reg_mean_sd) %>% 
   row_to_names(row_number = 1) %>% 
@@ -138,6 +140,8 @@ regional_table <- S1_reg_sum %>%
                 rows = c(14:16)) %>% 
   tab_row_group(label = "Metrics", 
                 rows = c(1:13)) ; regional_table
+
+#gtsave(regional_table, "outputs/regional_table.png", expand = 10)
 
 #### S1 State Summary ####
 S1_state_sum <- t(state_mean_sd) %>% 
@@ -168,6 +172,8 @@ state_table <- S1_state_sum %>%
   tab_row_group(label = "Metrics", 
                 rows = c(1:13)) ; state_table
 
+#gtsave(state_table, "outputs/state_table.png", expand = 10)
+
 #### S1 Reserve Summary ####
 S1_reserve_sum <- t(reserve_mean[1:18]) %>% 
   row_to_names(row_number = 1) %>% 
@@ -197,3 +203,4 @@ reserve_table <- S1_reserve_sum %>%
   tab_row_group(label = "Metrics", 
                 rows = c(1:13)) ; reserve_table
 
+#gtsave(reserve_table, "outputs/reserve_table.png", expand = 10)

@@ -1,0 +1,61 @@
+﻿Full_Name,Abbreviation
+Area to edge ratio,Core_Edge_ratio
+Unvegetated edge ratio,UnvegVegEdge_ratio
+% impervious,Perc_IC
+% natural,Perc_Natural
+% agricultural,Perc_Ag
+Soil erodibility,Erodibility_Factor
+Tidal range,MEAN_Marsh_Tidal_Range
+% marsh below MHHW,Pct_MUC_below_MHHW
+% marsh below MTL,Mct_MUC_below_MTL
+Hardened shoreline,Perc_Hardened_Shoreline
+Shoreline complexity,Shoreline_Sinuosity
+Marsh migration space,AVG_migration_ratio
+"Wetland ""connectedness""",Wetland_Connectedness
+Alabama,AL
+California,CA
+Connecticut,CT
+Deleware,DE
+Florida,FL
+Georgia,GA
+Louisianna,LA
+Maine,ME
+Maryland,MD
+Massachusetts,MA
+Mississippi,MS
+New Hampshire,NH
+New Jersey,NJ
+New York,NY
+North Carolina,NC
+Oregon,OR
+Pennsylvania,PA
+Rhode Island,RI
+South Carolina,SC
+Texas,TX
+Virginia,VA
+Washington,WA
+Apalachicola National Estuarine Research Reserve,"APA, FL"
+Ashepoo Combahee Edisto Basin National Estuarine Research Reserve,"ACE, SC"
+Chesapeake Bay National Estuarine Research Reserve (Maryland),"CBM, MD"
+Chesapeake Bay National Estuarine Research Reserve (Virginia),"CBV, VA"
+Connecticut National Estuarine Research Reserve,"CCT, CT"
+Delaware National Estuarine Research Reserve,"DEL, DE"
+Elkhorn Slough National Estuarine Research Reserve,"ELK, CA"
+Grand Bay National Estuarine Research Reserve,"GND, MS"
+Great Bay National Estuarine Research Reserve,"GRB, NH"
+Guana Tolomato Matanzas National Estuarine Research Reserve,"GTM, FL"
+Hudson River National Estuarine Research Reserve,"HUD, NY"
+Jacques Cousteau National Estuarine Research Reserve,"JAC, NJ"
+Mission-Aransas National Estuarine Research Reserve,"MAR, TX"
+Narragansett Bay National Estuarine Research Reserve,"NAR, RI"
+North Carolina National Estuarine Research Reserve,"NOC, NC"
+North Inlet-Winyah Bay National Estuarine Research Reserve,"NIW, SC"
+Padilla Bay National Estuarine Research Reserve,"PDB, WA"
+Rookery Bay National Estuarine Research Reserve,"RKB, FL"
+San Francisco Bay National Estuarine Research Reserve,"SFB, CA"
+Sapelo Island National Estuarine Research Reserve,"SAP, GA "
+South Slough National Estuarine Research Reserve,"SOS, OR"
+Tijuana River National Estuarine Research Reserve,"TJR, CA"
+Waquoit Bay National Estuarine Research Reserve,"WQB, MA"
+Weeks Bay National Estuarine Research Reserve,"WKB, AL"
+Wells National Estuarine Research Reserve,"WEL, ME"

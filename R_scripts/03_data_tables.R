@@ -81,10 +81,32 @@ mgmt_table <- bind_cols(mgmt_labs, reg_mgmt, Total = nat_mgmt$n) %>%
 
 #gtsave(mgmt_table, "outputs/mgmt_table.png", expand = 10)
 
-#### S2 metadata ####
+#### S2 Abbreviations metadata ####
 
+abbs <- read.csv("data/abbreviations_metadata.csv")
 
+abbs_table <- abbs %>% 
+  gt() %>% 
+  cols_label(Full_Name = "Full Name") %>% 
+  opt_table_font(font = "Calibri") %>% 
+  tab_options(
+    table.font.color = "black",
+    table.border.top.style = "none",
+    table.border.bottom.style = "solid",
+    table.border.bottom.color = "black",
+    table.border.bottom.width = px(3),
+    column_labels.border.bottom.color = "black",
+    column_labels.border.bottom.width = px(3),
+    data_row.padding = px(10)) %>% 
+  opt_row_striping() %>% 
+  tab_row_group(label = "National Estuarine Research Reserves (NERRs)", 
+                rows = 36:60) %>% 
+  tab_row_group(label = "States", 
+                rows = c(14:35)) %>% 
+  tab_row_group(label = "Metrics", 
+                rows = c(1:13)) ; abbs_table
 
+#gtsave(abbs_table, "outputs/abbs_table.png", expand = 10)
 
 #### S2 National Summary ####
 nat_mean_2 <- as.data.frame(apply(resilience_ntiles, 2, meansd))

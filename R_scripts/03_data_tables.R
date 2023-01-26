@@ -39,7 +39,7 @@ mgmt_labs <- resilience_df %>%
   arrange(ManagementCategory) #matches order from the nat and reg summaries
 
 #combine row names, and regional and national frequencies into one table
-mgmt_sum <- bind_cols(mgmt_labs, reg_mgmt, Total = nat_mgmt$n) %>% 
+mgmt_table <- bind_cols(mgmt_labs, reg_mgmt, Total = nat_mgmt$n) %>% 
   mutate(ManagementCategory =  factor(ManagementCategory, 
                                       levels = c("High-Low-High",
                                                  "High-High-High",
@@ -59,6 +59,9 @@ mgmt_sum <- bind_cols(mgmt_labs, reg_mgmt, Total = nat_mgmt$n) %>%
   cols_align(
     align = "center",
     columns = everything()) %>%
+  # tab_style(
+  #   style = cell_text(font = "Calibri"), 
+  #   locations = list(cells_title(), cells_body())) %>% 
   tab_options(
     table.font.name = "Calibri",
     table.font.color = "black",
@@ -75,9 +78,9 @@ mgmt_sum <- bind_cols(mgmt_labs, reg_mgmt, Total = nat_mgmt$n) %>%
                          color = "black",
                          weight = px(2)),
     locations = cells_body(columns = everything(),
-                           rows = 9)); mgmt_sum 
+                           rows = 9)); mgmt_table 
 
-#gtsave(mgmt_sum, "outputs/mgmt_sum.png", expand = 10)
+#gtsave(mgmt_table, "outputs/mgmt_table.png", expand = 10)
 
 #### S1 National Summary ####
 nat_mean_2 <- as.data.frame(apply(resilience_ntiles, 2, meansd))

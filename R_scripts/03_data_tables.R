@@ -5,6 +5,7 @@
 library(tidyverse)
 library(janitor)
 library(gt)
+library(webshot2)
 
 #### load data summaries ####
 source("R_scripts/02_summarize_data.R")
@@ -79,6 +80,11 @@ mgmt_table <- bind_cols(mgmt_labs, reg_mgmt, Total = nat_mgmt$n) %>%
                            rows = 9)); mgmt_table 
 
 #gtsave(mgmt_table, "outputs/mgmt_table.png", expand = 10)
+
+#### S2 metadata ####
+
+
+
 
 #### S2 National Summary ####
 nat_mean_2 <- as.data.frame(apply(resilience_ntiles, 2, meansd))
@@ -177,7 +183,7 @@ state_table <- S1_state_sum %>%
   tab_row_group(label = "Metrics", 
                 rows = c(1:13)); state_table
 
-gtsave(state_table, "outputs/state_table.png", expand = 10)
+#gtsave(state_table, "outputs/state_table.png", expand = 10, vwidth = 2000, vheight = 1000)
 
 #### S2 Reserve Summary ####
 S1_reserve_sum <- t(reserve_mean[1:18]) %>% 
@@ -208,4 +214,7 @@ reserve_table <- S1_reserve_sum %>%
   tab_row_group(label = "Metrics", 
                 rows = c(1:13)) ; reserve_table
 
-#gtsave(reserve_table, "outputs/reserve_table.png", expand = 10, vwidth = 2000, vheight = 1000)
+#gtsave(reserve_table, "outputs/reserve_table.png", expand = 10, vwidth = 1200, vheight = 1000)
+
+
+

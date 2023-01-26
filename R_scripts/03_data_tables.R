@@ -59,11 +59,8 @@ mgmt_table <- bind_cols(mgmt_labs, reg_mgmt, Total = nat_mgmt$n) %>%
   cols_align(
     align = "center",
     columns = everything()) %>%
-  # tab_style(
-  #   style = cell_text(font = "Calibri"), 
-  #   locations = list(cells_title(), cells_body())) %>% 
+  opt_table_font(font = "Calibri") %>% 
   tab_options(
-    table.font.name = "Calibri",
     table.font.color = "black",
     table.border.top.style = "none",
     table.border.bottom.style = "solid",
@@ -95,8 +92,8 @@ national_table <- nat_mean_2 %>%
   cols_align(
     align = "center",
     columns = "Avg_Resilience_Score") %>% 
+  opt_table_font(font = "Calibri") %>% 
   tab_options(
-    table.font.name = "Calibri",
     table.font.color = "black",
     table.border.top.style = "none",
     table.border.bottom.style = "solid",
@@ -126,8 +123,8 @@ regional_table <- S1_reg_sum %>%
   cols_align(
     align = "center",
     columns = !Metrics) %>%
+  opt_table_font(font = "Calibri") %>% 
   tab_options(
-    table.font.name = "Calibri",
     table.font.color = "black",
     table.border.top.style = "none",
     table.border.bottom.style = "solid",
@@ -157,8 +154,8 @@ state_table <- S1_state_sum %>%
   cols_align(
     align = "center",
     columns = !Metrics) %>%
+  opt_table_font(font = "Calibri") %>% 
   tab_options(
-    table.font.name = "Calibri",
     table.font.color = "black",
     table.border.top.style = "none",
     table.border.bottom.style = "solid",
@@ -188,8 +185,8 @@ reserve_table <- S1_reserve_sum %>%
   cols_align(
     align = "center",
     columns = !Metrics) %>%
+  opt_table_font(font = "Calibri") %>% 
   tab_options(
-    table.font.name = "Calibri",
     table.font.color = "black",
     table.border.top.style = "none",
     table.border.bottom.style = "solid",

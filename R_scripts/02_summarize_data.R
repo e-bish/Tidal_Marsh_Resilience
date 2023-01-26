@@ -72,12 +72,17 @@ reserve_mean1<- aggregate(x = resilience_ntiles,
                           by = list(resilience_df$HUC_RESERVE),
                           FUN = mean)
 
+reserve_mean1 <- reserve_mean1[-1,] #remove summary for marsh units not in reserves
+
 reserve_mean1$min_col = colnames(reserve_mean1[2:14])[apply(reserve_mean1[2:14], 1, which.min)]
 reserve_mean1$max_col = colnames(reserve_mean1[2:14])[apply(reserve_mean1[2:14], 1, which.max)]
 
 reserve_mean_sd<- aggregate(x = resilience_ntiles,
                             by = list(resilience_df$HUC_RESERVE),
                             FUN = meansd)
+
+reserve_mean_sd <- reserve_mean_sd[-1,] #remove summary for marsh units not in reserves
+
 
 names(reserve_mean_sd) <- c("Reserve", summary_metrics)
 reserve_mean <- reserve_mean_sd

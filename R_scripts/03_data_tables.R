@@ -141,3 +141,61 @@ regional_table <- S1_reg_sum %>%
   tab_row_group(label = "Metrics", 
                 rows = c(1:13)) ; regional_table
 
+#### S1 State Summary ####
+S1_state_sum <- t(state_mean_sd) %>% 
+  row_to_names(row_number = 1) %>% 
+  as.data.frame() %>% 
+  mutate(Metrics = summary_metrics)
+
+state_table <- S1_state_sum %>% 
+  gt(rowname_col = "Metrics") %>% 
+  cols_align(
+    align = "center",
+    columns = !Metrics) %>%
+  tab_options(
+    table.font.name = "Calibri",
+    table.font.color = "black",
+    table.border.top.style = "none",
+    table.border.bottom.style = "solid",
+    table.border.bottom.color = "black",
+    table.border.bottom.width = px(3),
+    column_labels.border.bottom.color = "black",
+    column_labels.border.bottom.width = px(3),
+    data_row.padding = px(10)) %>% 
+  opt_row_striping() %>% 
+  tab_row_group(label = "Total", 
+                rows = 17) %>% 
+  tab_row_group(label = "Metric Categories", 
+                rows = c(14:16)) %>% 
+  tab_row_group(label = "Metrics", 
+                rows = c(1:13)) ; state_table
+
+#### S1 Reserve Summary ####
+S1_reserve_sum <- t(reserve_mean) %>% 
+  row_to_names(row_number = 1) %>% 
+  as.data.frame() %>% 
+  mutate(Metrics = summary_metrics)
+
+state_table <- S1_reserve_sum %>% 
+  gt(rowname_col = "Metrics") %>% 
+  cols_align(
+    align = "center",
+    columns = !Metrics) %>%
+  tab_options(
+    table.font.name = "Calibri",
+    table.font.color = "black",
+    table.border.top.style = "none",
+    table.border.bottom.style = "solid",
+    table.border.bottom.color = "black",
+    table.border.bottom.width = px(3),
+    column_labels.border.bottom.color = "black",
+    column_labels.border.bottom.width = px(3),
+    data_row.padding = px(10)) %>% 
+  opt_row_striping() %>% 
+  tab_row_group(label = "Total", 
+                rows = 17) %>% 
+  tab_row_group(label = "Metric Categories", 
+                rows = c(14:16)) %>% 
+  tab_row_group(label = "Metrics", 
+                rows = c(1:13)) ; state_table
+

@@ -87,7 +87,7 @@ reserve_mean_sd <- reserve_mean_sd[-1,] #remove summary for marsh units not in r
 names(reserve_mean_sd) <- c("Reserve", summary_metrics)
 reserve_mean <- reserve_mean_sd
 reserve_mean <- cbind(reserve_mean, reserve_mean1[19:20])
-reserve_mean[c(8, 22, 26),] <- reserve_mean1[c(8, 22, 26),] #add in values for reserves with only one HUC
+reserve_mean[c(7, 21, 25),] <- reserve_mean1[c(7, 21, 25),] #add in values for reserves with only one HUC
 
 #view an abbreviated version with just summary metrics
 reserve_sum <- reserve_mean[c(1, 15:20)]

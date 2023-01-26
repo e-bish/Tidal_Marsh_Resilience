@@ -15,7 +15,7 @@ these data can also be downloaded as a geodatabase here [https://coast.noaa.gov/
 
 - 02_summarize_data.R takes resilience.df.csv and summarizes data nationally within the coastal contiguous US, regionally, by state, by National Estuarine Research Reserve, and within the Gulf Islands National Seashore.
 
-- 03_data_tables.R takes resilience.df.csv and creates Table 2 in Stevens et al. 
+- 03_data_tables.R takes resilience.df.csv and creates Table 2 in Stevens et al. as well as tables in S2. Summary results for each spatial scale of application to US marshes
 
 - marsh_functions.R contains custum functions used in calculating metric ranks and summarizing data. 
 

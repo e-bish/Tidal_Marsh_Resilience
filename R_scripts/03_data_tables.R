@@ -75,9 +75,7 @@ mgmt_sum <- bind_cols(mgmt_labs, reg_mgmt, Total = nat_mgmt$n) %>%
                          color = "black",
                          weight = px(2)),
     locations = cells_body(columns = everything(),
-                           rows = 9))
-
-mgmt_sum 
+                           rows = 9)); mgmt_sum 
 
 #gtsave(mgmt_sum, "outputs/mgmt_sum.png", expand = 10)
 
@@ -171,12 +169,12 @@ state_table <- S1_state_sum %>%
                 rows = c(1:13)) ; state_table
 
 #### S1 Reserve Summary ####
-S1_reserve_sum <- t(reserve_mean) %>% 
+S1_reserve_sum <- t(reserve_mean[1:18]) %>% 
   row_to_names(row_number = 1) %>% 
   as.data.frame() %>% 
   mutate(Metrics = summary_metrics)
 
-state_table <- S1_reserve_sum %>% 
+reserve_table <- S1_reserve_sum %>% 
   gt(rowname_col = "Metrics") %>% 
   cols_align(
     align = "center",
@@ -197,5 +195,5 @@ state_table <- S1_reserve_sum %>%
   tab_row_group(label = "Metric Categories", 
                 rows = c(14:16)) %>% 
   tab_row_group(label = "Metrics", 
-                rows = c(1:13)) ; state_table
+                rows = c(1:13)) ; reserve_table
 

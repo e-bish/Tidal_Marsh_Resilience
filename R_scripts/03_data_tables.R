@@ -54,7 +54,10 @@ mgmt_table <- bind_cols(mgmt_labs, reg_mgmt, Total = nat_mgmt$n) %>%
   arrange(ManagementCategory) %>% 
   adorn_totals("row") %>% 
   gt() %>% 
-  cols_label(ManagementCategory = "Marsh Resilience Category") %>% 
+  cols_label(ManagementCategory = "Current Condition-Vulnerability-Adaptive Capacity") %>% 
+  tab_spanner(
+    label = "Marsh Resilience Score",
+    columns = c(1)) %>%
   tab_spanner(
     label = "Region",
     columns = c(2:6)) %>%

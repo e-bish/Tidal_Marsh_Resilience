@@ -1,5 +1,5 @@
 # Tidal_Marsh_Resilience
-A repo to store files related to Stevens et al. (submitted)
+A repo to store files related to Marsh migration and beyond: A scalable framework to assess tidal wetland resilience and support strategic management (Stevens et al., submitted)
 
 ## Folder structure
 **data** - a .csv file containing raw metric data calculated using methods detailed here [https://www.fisheries.noaa.gov/inport/item/62985]
